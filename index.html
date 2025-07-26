@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chord Mania 🎸</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     /* ===== SPLASH SCREEN ===== */
     #splash-screen {
@@ -397,179 +398,53 @@
     </div>
 
     <template id="songTemplate">
-  <div class="toggle-wrap" data-genre="" data-id="">
-    <div class="toggle-header" onclick="toggleSection(this)">
-      🎵 <span class="song-title">Judul</span> - <span class="song-artist">Artis</span>
-      <span class="song-meta"></span>
-      <i class="fa fa-chevron-down"></i>
-    </div>
-    <div class="toggle-content">
-      <div class="song-info">
-        <img src="" alt="" class="album-cover">
-        <div class="song-details">
-          <p><strong>Album:</strong> <span class="song-album"></span></p>
-          <p><strong>Difficulty:</strong> <span class="song-difficulty"></span></p>
-          <p><strong>Key:</strong> <span class="song-key"></span> • <span class="song-bpm"></span> BPM</p>
+      <div class="toggle-wrap" data-genre="" data-id="">
+        <div class="toggle-header" onclick="toggleSection(this)">
+          🎵 <span class="song-title">Judul</span> - <span class="song-artist">Artis</span>
+          <span class="song-meta"></span>
+          <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="toggle-content">
+          <div class="song-info">
+            <img src="" alt="" class="album-cover">
+            <div class="song-details">
+              <p><strong>Album:</strong> <span class="song-album"></span></p>
+              <p><strong>Difficulty:</strong> <span class="song-difficulty"></span></p>
+              <p><strong>Key:</strong> <span class="song-key"></span> • <span class="song-bpm"></span> BPM</p>
+            </div>
+          </div>
+          
+          <div class="chord-controls">
+            <div class="chord-transpose">
+              <button onclick="transposeSong(this, -1)"><i class="fas fa-minus"></i> Turun</button>
+              <span class="transpose-display">0</span>
+              <button onclick="transposeSong(this, 1)"><i class="fas fa-plus"></i> Naik</button>
+            </div>
+            <div class="chord-actions">
+              <button onclick="copyCurrentChord(this)"><i class="far fa-copy"></i> Salin</button>
+              <button onclick="printCurrentChord(this)"><i class="fas fa-print"></i> Cetak</button>
+            </div>
+          </div>
+          
+          <pre class="chord-box" data-key="" data-bpm=""></pre>
+          
+          <div class="social-share">
+            <button class="facebook" onclick="shareToFacebook(this)"><i class="fab fa-facebook-f"></i></button>
+            <button class="whatsapp" onclick="shareToWhatsApp(this)"><i class="fab fa-whatsapp"></i></button>
+            <button class="twitter" onclick="shareToTwitter(this)"><i class="fab fa-twitter"></i></button>
+          </div>
+          
+          <div class="song-actions">
+            <button onclick="playAudio(this)" data-audio=""><i class="fas fa-play"></i> Play</button>
+            <button onclick="saveToFavorites(this)"><i class="far fa-heart"></i> Favorit</button>
+          </div>
         </div>
       </div>
-      
-      <div class="chord-controls">
-        <div class="chord-transpose">
-          <button onclick="transposeSong(this, -1)"><i class="fas fa-minus"></i> Turun</button>
-          <span class="transpose-display">0</span>
-          <button onclick="transposeSong(this, 1)"><i class="fas fa-plus"></i> Naik</button>
-        </div>
-        <div class="chord-actions">
-          <button onclick="copyCurrentChord(this)"><i class="far fa-copy"></i> Salin</button>
-          <button onclick="printCurrentChord(this)"><i class="fas fa-print"></i> Cetak</button>
-        </div>
-      </div>
-      
-      <pre class="chord-box" data-key="" data-bpm=""></pre>
-      
-      <div class="social-share">
-        <button class="facebook" onclick="shareToFacebook(this)"><i class="fab fa-facebook-f"></i></button>
-        <button class="whatsapp" onclick="shareToWhatsApp(this)"><i class="fab fa-whatsapp"></i></button>
-        <button class="twitter" onclick="shareToTwitter(this)"><i class="fab fa-twitter"></i></button>
-      </div>
-      
-      <div class="song-actions">
-        <button onclick="playAudio(this)" data-audio=""><i class="fas fa-play"></i> Play</button>
-        <button onclick="saveToFavorites(this)"><i class="far fa-heart"></i> Favorit</button>
-      </div>
-    </div>
-  </div>
-</template>
+    </template>
     
-    <!-- Song List -->
+    <!-- Song List Container -->
     <div id="songList">
-      <!-- Example Song 1 -->
-      <div class="toggle-wrap" data-genre="pop">
-        <div class="toggle-header" onclick="toggleSection(this)">
-          🎵 Laskar Pelangi - Nidji
-          <span class="song-meta">Pop • 4.5★ (120)</span>
-          <i class="fa fa-chevron-down"></i>
-        </div>
-        <div class="toggle-content">
-          <div class="song-info">
-            <img src="https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937" alt="Album cover" class="album-cover">
-            <div class="song-details">
-              <p><strong>Album:</strong> Laskar Pelangi (2008)</p>
-              <p><strong>Difficulty:</strong> Intermediate</p>
-              <p><strong>Tuning:</strong> Standard</p>
-            </div>
-          </div>
-          
-          <div class="chord-controls">
-            <div class="chord-transpose">
-              <button onclick="transposeSong(this, -1)"><i class="fas fa-minus"></i> Turun</button>
-              <span class="transpose-display">0</span>
-              <button onclick="transposeSong(this, 1)"><i class="fas fa-plus"></i> Naik</button>
-            </div>
-            <div class="chord-actions">
-              <button onclick="copyCurrentChord(this)"><i class="far fa-copy"></i> Salin</button>
-              <button onclick="printCurrentChord(this)"><i class="fas fa-print"></i> Cetak</button>
-            </div>
-          </div>
-          
-          <div class="chord-box" data-key="D" data-bpm="120">
-[Intro] 
-D  A  Bm  G (2x)
-
-[Verse]
-D               A
-Mimpi adalah kunci
-Bm              G
-Untuk kita menaklukkan dunia
-D               A
-Berlarilah tanpa lelah
-Bm              G
-Sampai engkau meraihnya
-
-[Chorus]
-D           A
-Laskar pelangi
-Bm          G
-Takkan terikat waktu
-D           A
-Bebas melambung
-Bm          G
-Di angkasa
-D           A
-Menjulang tinggi
-Bm          G
-Di atas awan
-          </div>
-          
-          <div class="social-share">
-            <button class="facebook" onclick="shareToFacebook(this)"><i class="fab fa-facebook-f"></i></button>
-            <button class="whatsapp" onclick="shareToWhatsApp(this)"><i class="fab fa-whatsapp"></i></button>
-            <button class="twitter" onclick="shareToTwitter(this)"><i class="fab fa-twitter"></i></button>
-          </div>
-          
-          <div class="song-actions">
-            <button onclick="playAudio(this)" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">▶️ Play</button>
-            <button onclick="saveToFavorites(this)">❤️ Favorit</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Example Song 2 -->
-      <div class="toggle-wrap" data-genre="rock">
-        <div class="toggle-header" onclick="toggleSection(this)">
-          🎵 Sweet Child O' Mine - Guns N' Roses
-          <span class="song-meta">Rock • 4.8★ (250)</span>
-          <i class="fa fa-chevron-down"></i>
-        </div>
-        <div class="toggle-content">
-          <div class="song-info">
-            <img src="https://i.scdn.co/image/ab67616d0000b273e319baafd16e84f0408af2a0" alt="Album cover" class="album-cover">
-            <div class="song-details">
-              <p><strong>Album:</strong> Appetite for Destruction (1987)</p>
-              <p><strong>Difficulty:</strong> Advanced</p>
-              <p><strong>Tuning:</strong> Eb Standard</p>
-            </div>
-          </div>
-          
-          <div class="chord-controls">
-            <div class="chord-transpose">
-              <button onclick="transposeSong(this, -1)"><i class="fas fa-minus"></i> Turun</button>
-              <span class="transpose-display">0</span>
-              <button onclick="transposeSong(this, 1)"><i class="fas fa-plus"></i> Naik</button>
-            </div>
-            <div class="chord-actions">
-              <button onclick="copyCurrentChord(this)"><i class="far fa-copy"></i> Salin</button>
-              <button onclick="printCurrentChord(this)"><i class="fas fa-print"></i> Cetak</button>
-            </div>
-          </div>
-          
-          <div class="chord-box" data-key="D" data-bpm="120">
-[Intro]
-D  C  G  D
-
-[Verse]
-D               C
-She's got a smile that it seems to me
-G               D
-Reminds me of childhood memories
-D               C
-Where everything was as fresh as the bright blue sky
-G               D
-Now and then when I see her face
-          </div>
-          
-          <div class="social-share">
-            <button class="facebook" onclick="shareToFacebook(this)"><i class="fab fa-facebook-f"></i></button>
-            <button class="whatsapp" onclick="shareToWhatsApp(this)"><i class="fab fa-whatsapp"></i></button>
-            <button class="twitter" onclick="shareToTwitter(this)"><i class="fab fa-twitter"></i></button>
-          </div>
-          
-          <div class="song-actions">
-            <button onclick="playAudio(this)" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">▶️ Play</button>
-            <button onclick="saveToFavorites(this)">❤️ Favorit</button>
-          </div>
-        </div>
-      </div>
+      <!-- Lagu akan dimuat di sini secara dinamis -->
     </div>
 
     <!-- Request Song Form -->
@@ -597,7 +472,8 @@ Now and then when I see her face
   </div>
 
   <footer>
-    &copy; 2025 Chord Mania 🎸 by FASIM DEV
+    &copy; 2025 Chord Mania 🎸 by FASIM DEV<br>
+    <a href="privacy-policy.html" style="color: #fff; text-decoration: underline;">Kebijakan Privasi</a>
   </footer>
 
   <script>
@@ -606,9 +482,6 @@ Now and then when I see her face
       // Preload the splash image
       const splashImg = new Image();
       splashImg.src = 'splash-image.jpg';
-      
-      // Debugging
-      console.log('Mencoba memuat gambar:', splashImg.src);
       
       splashImg.onload = function() {
         console.log('Gambar splash berhasil dimuat');
@@ -639,12 +512,98 @@ Now and then when I see her face
     let currentAudio = null;
     
     function initApp() {
+      loadSongs();
       // Initialize event listeners
       document.getElementById('searchInput').addEventListener('input', debounce(searchSongs, 300));
       document.getElementById('filterGenre').addEventListener('change', filterByGenre);
       
       // Initialize favorites
       initFavorites();
+    }
+    
+    // ===== SONG LOADER =====
+    async function loadSongs() {
+      try {
+        const response = await fetch('https://fasim-dev.github.io/chord-mania/dewa19_10songs.json');
+        const data = await response.json();
+        renderSongs(data.songs);
+        
+        // Jika tidak ada lagu, tampilkan contoh lagu
+        if (data.songs.length === 0) {
+          loadFallbackSongs();
+        }
+      } catch (error) {
+        console.error('Error loading songs:', error);
+        loadFallbackSongs();
+      }
+    }
+    
+    function loadFallbackSongs() {
+      // Contoh lagu jika gagal memuat JSON
+      const fallbackSongs = [
+        {
+          id: "1",
+          title: "Laskar Pelangi",
+          artist: "Nidji",
+          genre: "pop",
+          rating: "4.5★ (120)",
+          album: "Laskar Pelangi (2008)",
+          difficulty: "Intermediate",
+          key: "D",
+          bpm: "120",
+          cover: "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937",
+          chords: "[Intro] \nD  A  Bm  G (2x)\n\n[Verse]\nD               A\nMimpi adalah kunci\nBm              G\nUntuk kita menaklukkan dunia\nD               A\nBerlarilah tanpa lelah\nBm              G\nSampai engkau meraihnya\n\n[Chorus]\nD           A\nLaskar pelangi\nBm          G\nTakkan terikat waktu\nD           A\nBebas melambung\nBm          G\nDi angkasa\nD           A\nMenjulang tinggi\nBm          G\nDi atas awan",
+          audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        },
+        {
+          id: "2",
+          title: "Sweet Child O' Mine",
+          artist: "Guns N' Roses",
+          genre: "rock",
+          rating: "4.8★ (250)",
+          album: "Appetite for Destruction (1987)",
+          difficulty: "Advanced",
+          key: "D",
+          bpm: "120",
+          cover: "https://i.scdn.co/image/ab67616d0000b273e319baafd16e84f0408af2a0",
+          chords: "[Intro]\nD  C  G  D\n\n[Verse]\nD               C\nShe's got a smile that it seems to me\nG               D\nReminds me of childhood memories\nD               C\nWhere everything was as fresh as the bright blue sky\nG               D\nNow and then when I see her face",
+          audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        }
+      ];
+      
+      renderSongs(fallbackSongs);
+    }
+    
+    function renderSongs(songs) {
+      const songList = document.getElementById('songList');
+      const template = document.getElementById('songTemplate');
+      
+      // Kosongkan daftar lagu
+      songList.innerHTML = '';
+      
+      songs.forEach(song => {
+        const clone = template.content.cloneNode(true);
+        const element = clone.querySelector('.toggle-wrap');
+        
+        // Isi data lagu
+        element.setAttribute('data-genre', song.genre.toLowerCase());
+        element.setAttribute('data-id', song.id);
+        clone.querySelector('.song-title').textContent = song.title;
+        clone.querySelector('.song-artist').textContent = song.artist;
+        clone.querySelector('.song-meta').textContent = `${song.genre} • ${song.rating}`;
+        clone.querySelector('.song-album').textContent = song.album;
+        clone.querySelector('.song-difficulty').textContent = song.difficulty;
+        clone.querySelector('.song-key').textContent = song.key;
+        clone.querySelector('.song-bpm').textContent = song.bpm;
+        clone.querySelector('.album-cover').src = song.cover;
+        clone.querySelector('.album-cover').alt = `${song.album} cover`;
+        clone.querySelector('.chord-box').textContent = song.chords;
+        clone.querySelector('.chord-box').setAttribute('data-key', song.key);
+        clone.querySelector('.chord-box').setAttribute('data-bpm', song.bpm);
+        clone.querySelector('[onclick="playAudio(this)"]').setAttribute('data-audio', song.audio);
+        
+        songList.appendChild(clone);
+      });
     }
     
     function toggleDarkMode() {
@@ -673,7 +632,11 @@ Now and then when I see her face
     }
     
     function startAutoScroll() {
-      if (scrollInterval) return;
+      if (scrollInterval) {
+        stopAutoScroll();
+        return;
+      }
+      
       const speed = parseInt(document.getElementById("scrollSpeed").value);
       scrollInterval = setInterval(() => {
         window.scrollBy(0, 1);
@@ -748,40 +711,42 @@ Now and then when I see her face
       if (currentAudio) {
         currentAudio.pause();
         currentAudio = null;
+        document.querySelectorAll('[onclick="playAudio(this)"]').forEach(btn => {
+          btn.innerHTML = '<i class="fas fa-play"></i> Play';
+        });
       }
       
       const audioUrl = button.getAttribute('data-audio');
+      if (!audioUrl) return;
+      
       currentAudio = new Audio(audioUrl);
       currentAudio.play();
-      button.textContent = '⏸ Pause';
+      button.innerHTML = '<i class="fas fa-pause"></i> Pause';
       
       currentAudio.onended = function() {
-        button.textContent = '▶️ Play';
+        button.innerHTML = '<i class="fas fa-play"></i> Play';
+        currentAudio = null;
       };
       
-      button.onclick = function() {
-        if (currentAudio.paused) {
-          currentAudio.play();
-          button.textContent = '⏸ Pause';
-        } else {
-          currentAudio.pause();
-          button.textContent = '▶️ Play';
-        }
+      currentAudio.onpause = function() {
+        button.innerHTML = '<i class="fas fa-play"></i> Play';
       };
     }
     
     function saveToFavorites(button) {
-      const songTitle = button.closest('.toggle-wrap').querySelector('.toggle-header').innerText;
-      let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      const songElement = button.closest('.toggle-wrap');
+      const songId = songElement.getAttribute('data-id');
       
-      if (!favorites.includes(songTitle)) {
-        favorites.push(songTitle);
-        button.textContent = '❤️ Disimpan';
-        button.style.background = '#e91e63';
+      let favorites = JSON.parse(localStorage.getItem('favorites') || []);
+      
+      if (!favorites.includes(songId)) {
+        favorites.push(songId);
+        button.innerHTML = '<i class="fas fa-heart"></i> Favorit';
+        button.style.color = '#e91e63';
       } else {
-        favorites = favorites.filter(item => item !== songTitle);
-        button.textContent = '❤️ Favorit';
-        button.style.background = '';
+        favorites = favorites.filter(id => id !== songId);
+        button.innerHTML = '<i class="far fa-heart"></i> Favorit';
+        button.style.color = '';
       }
       
       localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -790,12 +755,20 @@ Now and then when I see her face
     function initFavorites() {
       const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
       document.querySelectorAll('.toggle-wrap').forEach(wrap => {
-        const title = wrap.querySelector('.toggle-header').innerText;
-        const btn = wrap.querySelector('.song-actions button:nth-child(2)');
-        if (btn && favorites.includes(title)) {
-          btn.textContent = '❤️ Disimpan';
-          btn.style.background = '#e91e63';
+        const id = wrap.getAttribute('data-id');
+        const btn = wrap.querySelector('[onclick="saveToFavorites(this)"]');
+        if (btn && favorites.includes(id)) {
+          btn.innerHTML = '<i class="fas fa-heart"></i> Favorit';
+          btn.style.color = '#e91e63';
         }
+      });
+    }
+    
+    function showFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || []);
+      document.querySelectorAll('.toggle-wrap').forEach(song => {
+        const id = song.getAttribute('data-id');
+        song.style.display = favorites.includes(id) ? '' : 'none';
       });
     }
     
@@ -813,6 +786,7 @@ Now and then when I see her face
       console.log('Request submitted:', { title, artist, genre, chords });
       alert('Terima kasih! Request lagu "' + title + '" telah diterima.');
       
+      // Reset form
       document.getElementById('songTitle').value = '';
       document.getElementById('songArtist').value = '';
       document.getElementById('songGenre').value = '';
@@ -823,8 +797,9 @@ Now and then when I see her face
       const input = document.getElementById("searchInput").value.toLowerCase();
       const wraps = document.querySelectorAll("#songList .toggle-wrap");
       wraps.forEach((wrap) => {
-        const title = wrap.querySelector(".toggle-header").innerText.toLowerCase();
-        wrap.style.display = title.includes(input) ? "" : "none";
+        const title = wrap.querySelector(".song-title").textContent.toLowerCase();
+        const artist = wrap.querySelector(".song-artist").textContent.toLowerCase();
+        wrap.style.display = title.includes(input) || artist.includes(input) ? "" : "none";
       });
     }
     
@@ -844,86 +819,6 @@ Now and then when I see her face
         timer = setTimeout(() => { func.apply(this, args); }, timeout);
       };
     }
-  
-  // ===== SONG LOADER =====
-async function loadSongs() {
-  try {
-    // Jika JSON di-host online:
-    const response = await fetch('https://example.com/songs.json');
-    // Jika menggunakan file lokal:
-    // const response = await fetch('songs.json');
-    
-    const data = await response.json();
-    renderSongs(data.songs);
-  } catch (error) {
-    console.error('Error loading songs:', error);
-    loadFallbackSongs();
-  }
-}
-
-function renderSongs(songs) {
-  const songList = document.getElementById('songList');
-  const template = document.getElementById('songTemplate');
-  
-  songs.forEach(song => {
-    const clone = template.content.cloneNode(true);
-    const element = clone.querySelector('.toggle-wrap');
-    
-    // Isi data lagu
-    element.setAttribute('data-genre', song.genre.toLowerCase());
-    element.setAttribute('data-id', song.id);
-    clone.querySelector('.song-title').textContent = song.title;
-    clone.querySelector('.song-artist').textContent = song.artist;
-    clone.querySelector('.song-meta').textContent = `${song.genre} • ${song.rating}`;
-    clone.querySelector('.song-album').textContent = song.album;
-    clone.querySelector('.song-difficulty').textContent = song.difficulty;
-    clone.querySelector('.song-key').textContent = song.key;
-    clone.querySelector('.song-bpm').textContent = song.bpm;
-    clone.querySelector('.album-cover').src = song.cover;
-    clone.querySelector('.album-cover').alt = `${song.album} cover`;
-    clone.querySelector('.chord-box').textContent = song.chords;
-    clone.querySelector('.chord-box').setAttribute('data-key', song.key);
-    clone.querySelector('.chord-box').setAttribute('data-bpm', song.bpm);
-    clone.querySelector('[onclick="playAudio(this)"]').setAttribute('data-audio', song.audio);
-    
-    songList.appendChild(clone);
-  });
-}
-
-// Panggil saat inisialisasi
-function initApp() {
-  loadSongs();
-  // ... fungsi lainnya
-}
-  
-  // Simpan lagu favorit di localStorage
-function saveToFavorites(button) {
-  const songElement = button.closest('.toggle-wrap');
-  const songId = songElement.getAttribute('data-id');
-  
-  let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-  
-  if (!favorites.includes(songId)) {
-    favorites.push(songId);
-    button.innerHTML = '<i class="fas fa-heart"></i> Favorit';
-    button.style.color = '#e91e63';
-  } else {
-    favorites = favorites.filter(id => id !== songId);
-    button.innerHTML = '<i class="far fa-heart"></i> Favorit';
-    button.style.color = '';
-  }
-  
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-}
-
-// Filter lagu favorit
-function showFavorites() {
-  const favorites = JSON.parse(localStorage.getItem('favorites') || []);
-  document.querySelectorAll('.toggle-wrap').forEach(song => {
-    const id = song.getAttribute('data-id');
-    song.style.display = favorites.includes(id) ? '' : 'none';
-  });
-}
   </script>
 </body>
 </html>
