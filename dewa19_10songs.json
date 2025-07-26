@@ -1,0 +1,32 @@
+{
+  "songs": [
+    {
+      "id": "1",
+      "title": "Kangen",
+      "artist": "Dewa 19",
+      "genre": "Pop Rock",
+      "rating": "5\u2605",
+      "album": "Dewa 19 (1992)",
+      "difficulty": "Beginner",
+      "key": "C",
+      "bpm": "75",
+      "cover": "https://upload.wikimedia.org/wikipedia/id/9/99/Dewa19-cover.jpg",
+      "audio": "",
+      "chords": "[Intro]\nC G Am Em F C Dm G\n\n[Verse 1]\nC            G\nAku di sini dan kau di sana\nAm           Em\nHanya berjumpa via suara\nF             C\nNamun ku selalu menunggu\nDm          G\nSaat kita akan berjumpa\n\n[Verse 2]\nC             G\nMeski ku di landa sepi\nAm           Em\nKu yakin kau kan kembali\nF         C\nKarena ku tak ingin\nDm          G\nKau pergi tinggalkanku sendiri\n\n[Chorus]\nC             G\nKangen... aku kangen padamu\nAm            Em\nIngin jumpa dan memelukmu\nF            C\nKangen... tuk mencium dirimu\nDm             G        C\nWalau hanya dalam mimpi ku"
+    },
+    {
+      "id": "2",
+      "title": "Cinta Kan Membawamu Kembali",
+      "artist": "Dewa 19",
+      "genre": "Pop Rock",
+      "rating": "5\u2605",
+      "album": "Format Masa Depan (1994)",
+      "difficulty": "Beginner",
+      "key": "C",
+      "bpm": "80",
+      "cover": "https://upload.wikimedia.org/wikipedia/id/b/bd/Format_Masa_Depan.jpg",
+      "audio": "",
+      "chords": "[Intro]\nC G Am Em F C Dm G\n\n[Verse]\nC              G\nWaktu terus bergulir\nAm           Em\nDi sela bayangan dirimu\nF             C\nSemakin membuatku\nDm          G\nTak berdaya tanpamu\n\n[Chorus]\nF         G\nCinta akan membawamu\nC         Am\nKembali di sini\nF         G\nMeski dirimu tak di sisiku\nC\nKu tetap menanti"
+    }
+  ]
+}
